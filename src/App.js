@@ -55,7 +55,6 @@ class App extends React.Component {
   }
 
   render() {
-    const n = Date.now();
     return (
       <div className="App">
         <header className="App-header" onMouseMove={this._onMouseMove.bind(this)} style={this.state.style}>
