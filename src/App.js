@@ -29,7 +29,7 @@ class App extends React.Component {
     const digit = ['0', '', '', '', '', '', ''];
     let yy, mo, dd, hh, mi, ss;
 
-    yy = new Date().getFullYear().toString().substring(2, 4);
+    yy = new Date().getFullYear().toString().substring(0, 4);
     mo = digit[parseInt((new Date().getMonth() + 1) / 10)] + (new Date().getMonth() + 1).toString();
     dd = digit[parseInt(new Date().getDate() / 10)] + new Date().getDate().toString();
     hh = digit[parseInt(new Date().getHours() / 10)] + new Date().getHours().toString();
@@ -128,16 +128,16 @@ class App extends React.Component {
         <header className="App-header">
           <div>
             <span class={this.state.yy}>{this.state.year}</span>
-            <span> </span>
+            <span></span>
             <span class={this.state.m0}>{this.state.month}</span>
-            <span> </span>
+            <span></span>
             <span class={this.state.d}>{this.state.day}</span>
           </div>
           <div>
             <span class={this.state.h}>{this.state.hour}</span>
-            <span class="colon">:</span>
+            <span class="separator">:</span>
             <span class={this.state.m1}>{this.state.minutes}</span>
-            <span class="colon">:</span>
+            <span class="separator">:</span>
             <span class={this.state.s}>{this.state.seconds}</span>
           </div>
         </header>
