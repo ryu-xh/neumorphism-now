@@ -84,11 +84,11 @@ class App extends React.Component {
 
     if ((mo === "12" || mo === "01") && this.state.m0 === "animations") {
       this.setState({
-        y: "animations"
+        yy: "animations"
       });
     } else {
       this.setState({
-        y: ""
+        yy: ""
       });
     }
 
@@ -124,9 +124,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header" onMouseMove={this._onMouseMove.bind(this)} style={this.state.style}>
-          <div>{this.state.year} {this.state.month} {this.state.day}</div>
+      <div className="App" onMouseMove={this._onMouseMove.bind(this)} style={this.state.style}>
+        <header className="App-header">
+          <div>
+            <span class={this.state.yy}>{this.state.year}</span>
+            <span> </span>
+            <span class={this.state.m0}>{this.state.month}</span>
+            <span> </span>
+            <span class={this.state.d}>{this.state.day}</span>
+          </div>
           <div>
             <span class={this.state.h}>{this.state.hour}</span>
             <span class="colon">:</span>
@@ -135,9 +141,9 @@ class App extends React.Component {
             <span class={this.state.s}>{this.state.seconds}</span>
           </div>
         </header>
-        <div class="footer" onMouseMove={this._onMouseMove.bind(this)} style={this.state.style}>
+        <div class="footer">
           <a href="https://github.com/ryuuseikang/neumorphism-now">
-            <i class="fab fa-github fa-3x" onMouseMove={this._onMouseMove.bind(this)}></i>
+            <i class="fab fa-github fa-3x"></i>
           </a>
         </div>
       </div>
