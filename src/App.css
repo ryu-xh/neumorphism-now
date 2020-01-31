@@ -41,32 +41,49 @@ a {
   top: -3vmin;
 }
 
-.fadeIn {
-  animation-name: FadeIn;
-  animation-duration: 0.5s;
-  animation-delay: 1s;
-  animation-iteration-count: initial;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate;
+.seconds {
+  animation-name: secondsAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.5,0,0.5,1);
+  animation-direction: alternate-reverse;
 }
 
-.fadeOut {
-  animation-name: FadeOut;
-  animation-duration: 0.5s;
-  animation-delay: 10s;
-  animation-iteration-count: initial;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate;
+.animations {
+  animation-name: animation;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.5,0,0.5,1);
+  animation-direction: alternate-reverse;
 }
 
-@keyframes FadeIn {
-  to {
+@keyframes secondsAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animation {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
     opacity: 1;
   }
 }
 
-@keyframes FadeOut {
-  to {
-    opacity: 0;
-  }
-}

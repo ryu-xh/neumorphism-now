@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import { faHamburger } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 class App extends React.Component {
     constructor(props) {
     super(props);
-    this.state = {x: 0.5, y: 0.5, year: '', month: '', day: '', hour: '', minutes: '', seconds: '', style: {textShadow: ['0.7vmin 0.7vmin 1vmin #d0d0d0', '-0.7vmin -0.7vmin 1vmin #ffffff']}};    
+    this.state = {x: 0.5, y: 0.5, year: '', month: '', day: '', hour: '', minutes: '', seconds: '', md: '',
+                  yy: false, m0: false, d: false, h: false, m1: false, s: 'animations',
+                  style: {textShadow: ['0.7vmin 0.7vmin 1vmin #d0d0d0', '-0.7vmin -0.7vmin 1vmin #ffffff']}};    
   }
 
   componentDidMount() {
@@ -28,16 +27,82 @@ class App extends React.Component {
 
   tick() {
     const digit = ['0', '', '', '', '', '', ''];
-  
+    let yy, mo, dd, hh, mi, ss;
+
+    yy = new Date().getFullYear().toString().substring(2, 4);
+    mo = digit[parseInt((new Date().getMonth() + 1) / 10)] + (new Date().getMonth() + 1).toString();
+    dd = digit[parseInt(new Date().getDate() / 10)] + new Date().getDate().toString();
+    hh = digit[parseInt(new Date().getHours() / 10)] + new Date().getHours().toString();
+    mi = digit[parseInt(new Date().getMinutes() / 10)] + new Date().getMinutes().toString();
+    ss = digit[parseInt(new Date().getSeconds() / 10)] + new Date().getSeconds().toString();
+
+    
+    if (ss !== this.state.seconds && this.state.seconds !== '')
+      this.setState({
+        s: "seconds"
+      });
+    
+    if (ss === "59" || ss === "00") {
+      this.setState({
+        m1: "animations"
+      });
+    } else {
+      this.setState({
+        m1: ""
+      });
+    }
+
+    if ((mi === "59" || mi === "00") && this.state.m1 === "animations") {
+      this.setState({
+        h: "animations"
+      });
+    } else {
+      this.setState({
+        h: ""
+      });
+    }
+
+    if ((hh === "23" || hh === "00") && this.state.h === "animations") {
+      this.setState({
+        d: "animations"
+      });
+    } else {
+      this.setState({
+        d: ""
+      });
+    }
+
+    if ((dd === new Date(yy, mo, 0).getDate().toString() || dd === "01") && this.state.d === "animations") {
+      this.setState({
+        m0: "animations"
+      });
+    } else {
+      this.setState({
+        m0: ""
+      });
+    }
+
+    if ((mo === "12" || mo === "01") && this.state.m0 === "animations") {
+      this.setState({
+        y: "animations"
+      });
+    } else {
+      this.setState({
+        y: ""
+      });
+    }
+
     this.setState({
-      year: new Date().getFullYear().toString().substring(2, 4),
-      month: digit[parseInt((new Date().getMonth() + 1) / 10)] + (new Date().getMonth() + 1).toString(),
-      day: digit[parseInt(new Date().getDate() / 10)] + new Date().getDate().toString(),
-      hour: digit[parseInt(new Date().getHours() / 10)] + new Date().getHours().toString(),
-      minutes: digit[parseInt(new Date().getMinutes() / 10)] + new Date().getMinutes().toString(),
-      seconds: digit[parseInt(new Date().getSeconds() / 10)] + new Date().getSeconds().toString(),
+      year: yy,
+      month: mo,
+      day: dd,
+      hour: hh,
+      minutes: mi,
+      seconds: ss,
     })
   }
+
+  getMax
 
   makeShadow() {
     let shadow, x, y;
@@ -62,7 +127,13 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header" onMouseMove={this._onMouseMove.bind(this)} style={this.state.style}>
           <div>{this.state.year} {this.state.month} {this.state.day}</div>
-          <div>{this.state.hour}<span class="colon">:</span>{this.state.minutes}<span class="colon">:</span>{this.state.seconds}</div>
+          <div>
+            <span class={this.state.h}>{this.state.hour}</span>
+            <span class="colon">:</span>
+            <span class={this.state.m1}>{this.state.minutes}</span>
+            <span class="colon">:</span>
+            <span class={this.state.s}>{this.state.seconds}</span>
+          </div>
         </header>
         <div class="footer" onMouseMove={this._onMouseMove.bind(this)} style={this.state.style}>
           <a href="https://github.com/ryuuseikang/neumorphism-now">
