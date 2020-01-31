@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/neumorphism-now/static/css/main.623617f2.chunk.css",
-    "main.js": "/neumorphism-now/static/js/main.a3b779fb.chunk.js",
-    "main.js.map": "/neumorphism-now/static/js/main.a3b779fb.chunk.js.map",
+    "main.css": "/neumorphism-now/static/css/main.ddd93cf5.chunk.css",
+    "main.js": "/neumorphism-now/static/js/main.f79f7863.chunk.js",
+    "main.js.map": "/neumorphism-now/static/js/main.f79f7863.chunk.js.map",
     "runtime-main.js": "/neumorphism-now/static/js/runtime-main.bfce8fa0.js",
     "runtime-main.js.map": "/neumorphism-now/static/js/runtime-main.bfce8fa0.js.map",
     "static/js/2.699c5fdd.chunk.js": "/neumorphism-now/static/js/2.699c5fdd.chunk.js",
     "static/js/2.699c5fdd.chunk.js.map": "/neumorphism-now/static/js/2.699c5fdd.chunk.js.map",
     "index.html": "/neumorphism-now/index.html",
-    "precache-manifest.4a48f6350c615f51555a5d18ef7346cf.js": "/neumorphism-now/precache-manifest.4a48f6350c615f51555a5d18ef7346cf.js",
+    "precache-manifest.44a1f4f8eedd7e52740af4658b719e07.js": "/neumorphism-now/precache-manifest.44a1f4f8eedd7e52740af4658b719e07.js",
     "service-worker.js": "/neumorphism-now/service-worker.js",
-    "static/css/main.623617f2.chunk.css.map": "/neumorphism-now/static/css/main.623617f2.chunk.css.map",
+    "static/css/main.ddd93cf5.chunk.css.map": "/neumorphism-now/static/css/main.ddd93cf5.chunk.css.map",
     "static/js/2.699c5fdd.chunk.js.LICENSE": "/neumorphism-now/static/js/2.699c5fdd.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.bfce8fa0.js",
     "static/js/2.699c5fdd.chunk.js",
-    "static/css/main.623617f2.chunk.css",
-    "static/js/main.a3b779fb.chunk.js"
+    "static/css/main.ddd93cf5.chunk.css",
+    "static/js/main.f79f7863.chunk.js"
   ]
 }
